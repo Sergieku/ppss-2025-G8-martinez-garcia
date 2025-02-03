@@ -1,0 +1,32 @@
+.
+├── pom.xml
+└── src <- Directorio de fuentes: contiene los archivos necesarios para construir el proyecto
+    ├── main
+    │   ├── java <- Código fuente del proyecto (código java)
+    │   │   └── paquete1
+    │   │       ├── Matricula.java
+    │   │       └── Triangulo.java
+    │   └── resources <- Otros ficheros usados por el código fuente (no java)
+    └── test
+        └── java <- Codigo fuente de las pruebas del proyecto (java)
+            └── paquete1
+                ├── MatriculaTest.java
+                └── TrianguloTest.java
+
+9 directories, 5 files
+.
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── paquete2
+    │   │       ├── Matricula.java
+    │   │       └── Triangulo.java
+    │   └── resources
+    └── test
+        └── java
+            └── paquete2
+                ├── MatriculaTest.java
+                └── TrianguloTest.java
+
+9 directories, 5 files

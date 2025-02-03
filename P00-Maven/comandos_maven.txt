@@ -1,0 +1,5 @@
+mvn compile -> Ejecuta las fases 1-7, en nuestro caso como estamos ejecutando el pom.xml por defecto, solo la fase 6(process-resources) y la 7 (compile) tienen un goal asociado por lo que se ejecutan estos 2 (resources:resources y compiler:compile).
+
+mvn test -> Ejecuta las fases 1-15, se ejecutan las fases 6 (process-resources), 7(compile), 12 (process-test-resources), 13 (test-compile) y 15 (test) que son las que tienen un goal asociado.
+
+mvn clean -> Elimina el directorio target, generado por Maven durante la construcción del proyecto.
