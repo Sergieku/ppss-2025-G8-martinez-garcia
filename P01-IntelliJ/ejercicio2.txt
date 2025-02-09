@@ -1,0 +1,94 @@
+EJERCICIO 2:
+
+Run configurations para el proyecto Maven SimpleMavenProject:
+
+
+SimpleProject_CompileAll:
+	mvn clean test-compile
+	
+Compila los archivos *.java de src/main/java y src/test/java dejando los archivos .class en las carpetas target/classes y target/test-classes respectivamente
+
+Se generan las siguientes carpetas y archivos dentro del proyecto Maven
+└── target
+    ├── classes
+    │   └── ppss
+    │       └── P01
+    │           ├── Ejemplo.class
+    │           └── Main.class
+    ├── generated-sources
+    │   └── annotations
+    ├── generated-test-sources
+    │   └── test-annotations
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       ├── compile
+    │       │   └── default-compile
+    │       │       ├── createdFiles.lst
+    │       │       └── inputFiles.lst
+    │       └── testCompile
+    │           └── default-testCompile
+    │               ├── createdFiles.lst
+    │               └── inputFiles.lst
+    └── test-classes
+        └── ppss
+            └── P01
+                └── EjemploTest.class
+
+
+SimpleProject_Run_tests:
+	mvn clean test
+	
+Realiza lo mismo de la fase anterior (compilar código fuente del proyecto y de los tests) y además ejecuta los tests. El resultado de los tests se almacena en la carpeta target/surefire-reports
+	
+Se generan las siguientes carpetas y archivos dentro del proyecto Maven	
+└── target
+    ├── classes
+    │   └── ppss
+    │       └── P01
+    │           ├── Ejemplo.class
+    │           └── Main.class
+    ├── generated-sources
+    │   └── annotations
+    ├── generated-test-sources
+    │   └── test-annotations
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       ├── compile
+    │       │   └── default-compile
+    │       │       ├── createdFiles.lst
+    │       │       └── inputFiles.lst
+    │       └── testCompile
+    │           └── default-testCompile
+    │               ├── createdFiles.lst
+    │               └── inputFiles.lst
+    ├── surefire-reports
+    │   ├── ppss.P01.EjemploTest.txt
+    │   └── TEST-ppss.P01.EjemploTest.xml
+    └── test-classes
+        └── ppss
+            └── P01
+                └── EjemploTest.class
+
+
+
+SimpleProject_Compile_only_tests:
+	clean compiler:testCompile
+	
+Se produce un error al compilar los tests dado que como no hemos compilado el código fuente de Ejemplo.java, la clase Ejemplo no está definida.
+
+Se generan las siguientes carpetas y archivos dentro del proyecto Maven	
+└── target
+    ├── generated-test-sources
+    │   └── test-annotations
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       └── testCompile
+    │           └── default-cli
+    │               ├── createdFiles.lst
+    │               └── inputFiles.lst
+    └── test-classes
+
+
+
+
+	
