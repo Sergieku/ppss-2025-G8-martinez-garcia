@@ -1,0 +1,26 @@
+1. Observa las GOALS que se ejecutan. ¿Por qué no aparecen los plugins correspondientes en el fichero pom.xml de nuestro proyecto?
+
+Las goals que se ejecutan están implementadas por defecto en el ciclo de vida default de Maven
+
+2. Consulta tu repositorio local y LOCALIZA:
+๏ la librería de JUnit que acabas de añadir (usa sus coordenadas para localizar el ichero jar) -> $HOME/.m2/repository/org/junit/jupiter/junit-jupiter/5.11.4/junit-jupiter-5.11.4.jar
+๏ el plugin compiler que estás usando para compilar (usa sus coordenadas para localizar el fichero jar) -> $HOME/.m2/repository/org/apache/maven/plugins/maven-compiler-plugin/3.13.0/maven-compiler-plugin-3.13.0.jar
+
+3. Finalmente familiarízate con las fases PACKAGE e INSTALL. Ejecútalas y anota:
+๏ qué goals se ejecutan en cada caso,
+๏ qué hace, qué artefacto genera y dónde se genera durante la fase package,
+๏ qué hace exactamente la fase install y dónde se copia exactamente en tu disco duro el artefacto correspondiente.
+
+Fase package
+
+- Se ejecuta la goal jar del plugin jar
+- Genera el artefacto artefactId-version.jar que se guarda dentro del directorio target/ en la carpeta del proyecto Maven
+
+Fase Install
+
+- Instala el artefacto maven que hemos generado en la fase package en nuestro repositorio local
+- Se almacena en $HOME/.m2/repository/ppss/P01/simpleMavenProject/1.0-SNAPSHOT/simpleMavenProject-1.0-SNAPSHOT.jar
+
+¿Para qué nos puede servir que el empaquetado de nuestro proyecto esté almacenado en nuestro repositorio local Maven?
+
+Que esté instalado el artefacto en nuestro repositorio nos permite utilizarlo como una dependencia / plugin en otro proyecto 
