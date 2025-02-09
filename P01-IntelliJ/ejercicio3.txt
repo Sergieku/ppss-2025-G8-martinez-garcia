@@ -1,0 +1,30 @@
+EJERCICIO 3:
+
+- Comportamientos que pertenezcen al conjunto S:
+	(1) ((29,2,2020),true)
+	(2) ((29,2,1800),false)
+	(3) ((29,2,2000),true)
+
+- Comportamientos que pertenezcen al conjunto P:	
+        (1) ((51,3,2023),false)
+	(2) ((29,2,2020),true)
+
+- Comportamientos que pertenezcen a T:
+   (1) ((29,2,2020),true)
+   (2) ((31,8,2019),true)
+   (3) ((-2,5,2019),false)
+
+
+El proceso de AUTOMATIZACIÓN de las pruebas es posterior al proceso de diseño y consiste en:
+	(1) Implementación y ejecución de las pruebas
+	(2) Evaluación del proceso de pruebas y emisión de informes
+
+
+En el proyecto Maven simpleMavenProject,
+
+el subproceso (1) de la automatización lo hemos realizado porque:
+	Hemos implementado las pruebas de nuestro código fuente en src/test/java y utilizando Maven con el comando mvn test, al llegar a la fase test se utiliza la goal test del plugin surefire que ejecuta los tests JUnit que hemos implementado y compara la salida esperada con la salida real para detectar si existen errores
+
+
+el subproceso (2) de la automatización lo hemos realizado porque:
+    En la carpeta target/surefire-reports dentro de nuestro proyecto Maven encontramos 2 archivos, ppss.P01.EjemploTest.txt y TEST-ppss.P01.EjemploTest.xml que son los informes que se generan en el proceso de evaluación de las pruebas. El primero sería la salida de la ejecución en formato texto y el segundo un resumen de la ejecución de las pruebas en formato XML.
