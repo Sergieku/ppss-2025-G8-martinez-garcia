@@ -1,7 +1,15 @@
 package ppss.practica3;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DataArrayTest {
@@ -143,5 +151,46 @@ public class DataArrayTest {
         DataException expectedException= assertThrows(DataException.class, () -> dt.delete(elemento));
 
         assertEquals(exceptMsgExpected,expectedException.getMessage(),"Mensaje Excepcion inválido");
+    }
+
+    @DisplayName("delete_With_Exceptions_")
+    @ParameterizedTest(name = "[{index}] Message exception should be \"{2}\" when we want delete {1}")
+    @MethodSource("casosDelete")
+    @Tag("parametrizado")
+    @Tag("conExcepciones")
+    void C8_deleteWithExceptions(DataArray dt, int elemento, String expectedMsg){
+        DataException expectedException = assertThrows(DataException.class, () -> dt.delete(elemento));
+        assertEquals(expectedMsg, expectedException.getMessage());
+    }
+
+    private static Stream<Arguments> casosDelete(){
+        return Stream.of(
+                Arguments.of(new DataArray(new int[]{}),8, "No hay elementos en la colección"),
+                Arguments.of(new DataArray(new int[]{1,3,5,7}),-5, "El valor a borrar debe ser > 0" ),
+                Arguments.of(new DataArray(new int[]{}),0,"Colección vacía. " + "Y el valor a borrar debe ser > 0"),
+                Arguments.of(new DataArray(new int[]{1,3,5,7}),8, "Elemento no encontrado" )
+        );
+    }
+
+
+    @DisplayName("delete_Without_Exceptions_")
+    @ParameterizedTest(name = "[{index}] should be {2} when we want delete {1}")
+    @MethodSource("casosDeleteWE")
+    @Tag("parametrizado")
+    void C9_deleteWithoutExceptions(DataArray dt, int elemento, int[] expectedArr){
+        assertDoesNotThrow(() -> dt.delete(elemento));
+
+        assertAll(
+                ()->assertArrayEquals(expectedArr,dt.getColeccion()),
+                ()->assertEquals(expectedArr.length,dt.size())
+        );
+    }
+
+    private static Stream<Arguments> casosDeleteWE(){
+        return Stream.of(
+                Arguments.of(new DataArray(new int[]{1,3,5,7}),5,new int[]{1,3,7}),
+                Arguments.of(new DataArray(new int[]{1,3,3,5,7}),3,new int[]{1,3,5,7}),
+                Arguments.of(new DataArray(new int[]{1,2,3,4,5,6,7,8,9,10}),4,new int[]{1,2,3,5,6,7,8,9,10})
+        );
     }
 }

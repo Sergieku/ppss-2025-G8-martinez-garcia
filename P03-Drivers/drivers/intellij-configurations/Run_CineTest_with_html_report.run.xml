@@ -34,6 +34,7 @@
               <option value="jxr:test-jxr" />
               <option value="surefire-report:report" />
               <option value="-Dtest=CineTest" />
+              <option value="-DexcludedGroups=parametrizado" />
             </list>
           </option>
           <option name="multimoduleDir" />

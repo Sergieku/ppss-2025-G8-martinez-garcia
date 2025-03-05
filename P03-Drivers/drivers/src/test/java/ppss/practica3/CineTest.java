@@ -4,6 +4,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.Arguments;
+
+import java.util.stream.Stream;
 
 @DisplayName("Test asociados a la clase Cine")
 public class CineTest {
@@ -93,6 +99,27 @@ public class CineTest {
         assertAll(
                 () -> assertArrayEquals(arrayEsperado,asientos),
                 () -> assertEquals(resultadoEsperado,resultadoReal)
+        );
+    }
+
+    @DisplayName("reservaButacas_")
+    @ParameterizedTest(name = "[{index}] should be {0} when we want {2} and {3}")
+    @Tag("parametrizado")
+    @MethodSource("casosDePrueba")
+    void C5_reservaButacas(boolean expected, boolean[] asientos, int solicitados,String testCase){
+
+        boolean result= assertDoesNotThrow(
+                () -> cine.reservaButacas(asientos,solicitados)
+        );
+
+        assertEquals(expected, result, "Error en el caso de prueba " + testCase);
+    }
+
+    private static Stream<Arguments> casosDePrueba(){
+        return Stream.of(
+                Arguments.of(false,new boolean[] {},0,"fila has no seats"),
+                Arguments.of(true,new boolean[] {false,false,false,true, true}, 2,"there are 2 free seats"),
+                Arguments.of(false,new boolean[] {true, true, true}, 1, "all seats are already taken")
         );
     }
 }

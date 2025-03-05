@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run_FicheroTextoTest_sin_excluidos" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="Run_todos_with_html_report" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -12,9 +12,9 @@
           <option name="goals">
             <list>
               <option value="clean" />
-              <option value="test" />
-              <option value="-Dtest=FicheroTextoTest" />
-              <option value="-DexcludedGroups=excluido" />
+              <option value="jxr:test-jxr" />
+              <option value="surefire-report:report" />
+              <option value="-DexcludedGroups=parametrizado|excluido" />
             </list>
           </option>
           <option name="multimoduleDir" />
