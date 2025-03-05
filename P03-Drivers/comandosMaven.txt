@@ -17,5 +17,5 @@ RUN CONFIGURATIONS:
 	clean test -Dgroups=parametrizado&conExcepciones
 
 - Run_todos_with_html_report: 
-	clean jxr:test-jxr surefire-report:report "-DexcludedGroups=parametrizado|excluido"
+	clean jxr:test-jxr surefire-report:report -DexcludedGroups=parametrizado|excluido
 
