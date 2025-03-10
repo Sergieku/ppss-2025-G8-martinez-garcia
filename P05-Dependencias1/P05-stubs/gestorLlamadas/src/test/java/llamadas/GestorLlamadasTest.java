@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class GestorLlamadasTest {
-    GestorLlamadas ges;
+    GestorLlamadasTestable ges;
     CalendarioStub stub;
 
     @BeforeEach
     public void setup() {
-        ges = new GestorLlamadas();
+        ges = new GestorLlamadasTestable();
     }
 
     @Test
@@ -23,7 +23,7 @@ public class GestorLlamadasTest {
 
         stub = new CalendarioStub();
         stub.setHoraActual(hora);
-        Factoria.setCalendario(stub);
+        ges.setCal(stub);
 
         //Act
         double resultadoReal=ges.calculaConsumo(minutos);
@@ -41,7 +41,7 @@ public class GestorLlamadasTest {
 
         stub = new CalendarioStub();
         stub.setHoraActual(hora);
-        Factoria.setCalendario(stub);
+        ges.setCal(stub);
 
         // Act
         double resultadoReal=ges.calculaConsumo(minutos);

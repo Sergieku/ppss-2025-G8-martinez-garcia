@@ -9,7 +9,7 @@ public class GestorLlamadas{
     }
 
     public double calculaConsumo(int minutos) {
-        Calendario c = Factoria.create();
+        Calendario c = getCalendario();
         int hora = c.getHoraActual();
         if(hora < 8 || hora > 20) {
             return minutos * TARIFA_NOCTURNA;
