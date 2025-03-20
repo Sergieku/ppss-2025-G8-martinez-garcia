@@ -67,7 +67,7 @@ public class FicheroTextoTest {
                             .andReturn(-1));
 
         assertDoesNotThrow(()-> fileReadermock.close());
-        EasyMock.expectLastCall().andThrow(new IOException());
+        EasyMock.expectLastCall().andThrow(new IOException()); // En la última llamada al mock hacemos que lance una IOException
 
         ctrl.replay();
         FicheroException exceptionCaptured = assertThrows(FicheroException.class,
