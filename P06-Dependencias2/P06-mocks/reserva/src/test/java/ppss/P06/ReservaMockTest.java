@@ -4,10 +4,7 @@ import org.easymock.EasyMock;
 import org.easymock.IMocksControl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ppss.excepciones.IsbnInvalidoException;
-import ppss.excepciones.JDBCException;
-import ppss.excepciones.ReservaException;
-import ppss.excepciones.SocioInvalidoException;
+import ppss.excepciones.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
