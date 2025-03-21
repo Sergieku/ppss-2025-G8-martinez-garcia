@@ -21,7 +21,7 @@ public class ReservaStubTest {
     public void setup(){
         res = EasyMock.partialMockBuilder(Reserva.class)
                 .addMockedMethod("compruebaPermisos")
-                .mock();
+                .niceMock();
         fact = EasyMock.niceMock(FactoriaBOs.class);
         iop = EasyMock.niceMock(IOperacionBO.class);
     }
